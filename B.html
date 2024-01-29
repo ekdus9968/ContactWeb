@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+<title>Add New Contact </title>
+
+
+<meta charset="UTF-8">
+	<style>
+.box {
+        width: 400px;
+		height: 460px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+		text-align: center;
+		Background-color: #FFEBCD;
+
+position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+		h1 {
+        text-align: center;
+        margin-bottom: 10px; 
+      }
+      form {
+        text-align: center;
+      }
+.box> .sub {
+display: flex;
+font-size: 1px;
+
+}
+.sub>form{
+
+  padding: 3px 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 150px;
+  text-align: left;
+  position: relative;
+  left: 5px;
+ 
+  }
+      
+      
+      
+      input[type=submit] {
+      	
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        
+      }
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+      
+      
+      
+      label {
+        display: block;
+        margin-bottom: 1px; /* label 요소 아래쪽 여백을 5px로 설정합니다. */
+      }
+input{
+Margin-bottom:10px;
+
+}
+
+	</style>
+</head>
+<body>
+<div class = "box">
+    <h1>Add New Contact</h1>
+    <form action="A.php" method="post">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+
+        <label for="last_name">Last Name:  </label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="mobile">Mobile:  </label>
+        <input type="text" id="mobile" name="mobile" required>
+
+        <label for="age">Age:  </label>
+        <input type="text" id="age" name="age" required>
+
+        <label for="comment">Comment: </label>
+        <input type="text" id="comment" name="comment" required>
+<br>
+<br>
+        <input type="submit" value="Submit">
+    </form>
+<br>
+<div class = "sub">
+    <form action ="selects.php" method="post">
+        <input type="submit" value="Veiw List">
+    </form>
+    <form action ="homepage.html" method="post">
+        <input type="submit" value="Go back home">
+    </form>
+</div>
+</div>
+</body>
+</html>

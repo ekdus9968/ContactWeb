@@ -1,0 +1,59 @@
+*{
+font-family: 'Roboto Condensed', sans-serif; 
+list-style: none;
+text-decoration: none;
+border-collapse: collapse;
+margin: 0px;
+padding: 0px;
+color: black;
+
+}
+
+.text1 {
+font-size:20px;
+font-weight: bold;
+Text-align: center;
+Background: orange;
+}
+
+.icon{
+Display: flex;
+Width:1280px;
+Height: 302px;
+Margin: auto;
+}
+
+.icon > li {
+Flex:1;
+Height: 302px;
+Background: white;
+Margin-top: 49px;
+Text-align: center;
+}
+
+.icons> li> .add_photo{
+Text-align: left;
+Margin-top: 250;
+
+}
+
+.icon> li:not(:last-child) {
+margin-right:20px; 
+}
+
+.main_img1 > h1{
+font-size: 48px;
+font-weight:2000;
+Text-align:center;
+font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <meta charset="UTF-8">
+    <title>Contacts Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        Background-color: lightSalmon;
+        color: white;
+      }
+      tr:hover {background-color:#FBE7A1;}
+      h1 {
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+    <h1> All List <h1>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile</th>
+        <th>Age</th>
+        <th>Comment</th>
+        <th>Delete</th>
+      </tr>
+  <?php
+  $host = 'sql112.epizy.com';
+  $username = 'epiz_34059385';
+  $password = 'PjRJFIaAlay';
+  $dbname = 'epiz_34059385_csci380_prj01';
+  
+
+  $conn = new mysqli($host, $username, $password, $dbname);
+  $delete_first_name = $_POST[ 'delete_first_name' ];
+  if ( isset( $delete_first_name ) ) {
+        $sql_delete = "DELETE FROM contacts WHERE first_name = '$delete_first_name';";
+        mysqli_query( $conn, $sql_delete );
+        echo '<p style="color: red;"> Contact:' . $delete_first_name . ' is deleted.</p>';
+    }
+
+  $sql = "SELECT first_name, last_name, mobile, age, comment FROM contacts";
+        $result = mysqli_query($conn, $sql);
+
+     if (mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_assoc($result)) {
+              $delete = '
+                <form action="selects.php" method="POST">
+                    <input type="hidden" name="delete_first_name" value="' . $row[ 'first_name' ] . '">
+                    <input type="submit" value="Delete">
+                </form>
+            ';
+        echo "<tr><td>" . $row["first_name"] . "</td><td>" . $row["last_name"] . "</td><td>" . $row["mobile"] . "</td><td>" . $row["age"] . "</td><td>" . $row["comment"] . "</td><td>".$delete."</td></tr>";
+          }
+        } else {
+          echo "0 results";
+        }
+
+        mysqli_close($conn);
+
+        
+      ?>
+    </table>
+    <form action = "index.html" mathod = "post">
+            <input type="submit" value="Go back home">
+    </form>
+  </body>
+</html>
